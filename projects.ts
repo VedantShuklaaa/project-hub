@@ -13,5 +13,10 @@ export const projects: Project[] = [
     name: "lobster",
     blurb: "A limit order book engine in Rust, with recorded benchmarks and a live order book.",
     originEnv: "LOBSTER_ORIGIN",
+  }, {
+    slug: "streamex-sdk",
+    name: "streamex",
+    blurb: "Unified realtime crypto streams for JavaScript applications, Powered by Rust.",
+    originEnv: "STREAMEX_ORIGIN",
   },
 ];
