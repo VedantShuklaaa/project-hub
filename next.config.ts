@@ -23,14 +23,16 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   async rewrites() {
-    return projects.flatMap((p) => {
-      const target = process.env[p.originEnv];
-      if (!target) return [];
-      return [
-        { source: `/${p.slug}`, destination: `${target}/${p.slug}` },
-        { source: `/${p.slug}/:path*`, destination: `${target}/${p.slug}/:path*` },
-      ];
-    });
+    return {
+      beforeFiles: projects.flatMap((p) => {
+        const target = process.env[p.originEnv];
+        if (!target) return [];
+        return [
+          { source: `/${p.slug}`, destination: `${target}/${p.slug}` },
+          { source: `/${p.slug}/:path*`, destination: `${target}/${p.slug}/:path*` },
+        ];
+      }),
+    };
   },
 
   async headers() {
