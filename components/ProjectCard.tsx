@@ -1,16 +1,42 @@
+import Image from "next/image";
 import type { Project } from "@/projects";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  priority = false,
+}: {
+  project: Project;
+  priority?: boolean;
+}) {
   return (
-    <a
-      href={`/${project.slug}`}
-      className="group flex items-center justify-between gap-6 rounded-lg border border-white/10 px-5 py-4 transition-colors hover:border-white/40"
-    >
-      <span>
-        <span className="block font-mono text-sm font-semibold">{project.name}</span>
-        <span className="mt-1 block text-sm text-white/55">{project.blurb}</span>
-      </span>
-      <span className="text-white/40 transition-transform group-hover:translate-x-1 group-hover:text-white">→</span>
-    </a>
+    <article className="group relative aspect-[3/3.5] overflow-hidden rounded-xl border border-black/15 dark:border-white/15 bg-card text-card-foreground transition-colors focus-within:ring-2 focus-within:ring-ring hover:border-foreground/25 sm:aspect-[3/3.5]">
+      {/* Image: top 60% */}
+      <div className="relative h-[60%] overflow-hidden bg-muted">
+        <Image
+          src={project.image}
+          alt={project.imageAlt}
+          fill
+          priority={priority}
+          sizes="(min-width: 640px) 312px, 50vw"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+        />
+      </div>
+
+      {/* Text: bottom 40% */}
+      <div className="flex h-[40%] flex-col gap-1.5 p-3 sm:p-4">
+        <h2 className="line-clamp-1 font-mono text-lg font-semibold sm:text-[0.9375rem]">
+          {/* Plain <a>: /<slug> is rewritten to another deployment, so skip client-side routing/prefetch */}
+          <a
+            href={`/${project.slug}`}
+            className="outline-none after:absolute after:inset-0 after:content-['']"
+          >
+            {project.name}
+          </a>
+        </h2>
+        <p className="line-clamp-3 leading-relaxed text-muted-foreground sm:line-clamp-4 sm:text-[0.8125rem]">
+          {project.blurb}
+        </p>
+      </div>
+    </article>
   );
 }
