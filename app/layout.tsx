@@ -3,10 +3,40 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { Navbar } from "@/components/navbar";
+import {
+	DEFAULT_TITLE,
+	OG_IMAGE,
+	PROJECTS_URL,
+	SITE_DESCRIPTION,
+	SITE_NAME,
+	X_HANDLE,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Projects · Vedant Shukla",
-  description: "Systems and infrastructure projects by Vedant Shukla.",
+	metadataBase: new URL(PROJECTS_URL),
+	title: {
+		default: DEFAULT_TITLE,
+		template: `%s · ${SITE_NAME}`,
+	},
+	description: SITE_DESCRIPTION,
+	openGraph: {
+		type: "website",
+		locale: "en_US",
+		url: "/",
+		siteName: SITE_NAME,
+		title: DEFAULT_TITLE,
+		description: SITE_DESCRIPTION,
+		images: [OG_IMAGE],
+	},
+	twitter: {
+		card: "summary_large_image",
+		site: X_HANDLE,
+		creator: X_HANDLE,
+		title: DEFAULT_TITLE,
+		description: SITE_DESCRIPTION,
+		images: [OG_IMAGE.url],
+	},
+	robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

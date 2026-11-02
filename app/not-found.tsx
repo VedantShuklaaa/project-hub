@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const MAIN_SITE = "https://vedantshukla.in";
+import { MAIN_SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
 	title: "Page not found",
@@ -29,7 +29,8 @@ export default function NotFound() {
 						View all projects
 					</Link>
 					<a
-						href={MAIN_SITE}
+						href={MAIN_SITE_URL}
+						rel="noopener noreferrer"
 						className="rounded-lg bg-muted px-4 py-2 text-sm text-foreground outline-none transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 					>
 						Main site

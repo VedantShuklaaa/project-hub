@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { projects } from "./projects";
+import { API_URL, API_WS_URL } from "./lib/site";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -9,14 +10,14 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self' https://api.vedantshukla.in wss://api.vedantshukla.in",
+  `connect-src 'self' ${API_URL} ${API_WS_URL}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
 ].join("; ");
 
 /**
- * projects.vedantshukla.in is this app. Each project is its own Vercel deployment with basePath
+ * This app is the projects index. Each project is its own Vercel deployment with basePath
  * "/<slug>", and this app forwards that whole path to it. Adding a project is one entry in projects.ts.
  */
 const nextConfig: NextConfig = {
@@ -44,6 +45,8 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          { key: "X-DNS-Prefetch-Control", value: "on" },
           { key: "Content-Security-Policy", value: csp },
         ],
       },
