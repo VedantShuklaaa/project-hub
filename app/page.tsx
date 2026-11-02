@@ -2,24 +2,37 @@ import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/projects";
 import { Typewriter } from "@/components/typewriter";
+import {
+  OG_IMAGE,
+  PROJECTS_URL,
+  SITE_NAME,
+  X_HANDLE,
+} from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://projects.vedantshukla.in";
 const title = "Projects";
+const ogTitle = `${title} · ${SITE_NAME}`;
 const description =
   "Systems and infrastructure work, each with something you can run or measure.";
 
 export const metadata: Metadata = {
-  title,
+  // Omit `title` so the root layout's default ("Projects · Vedant Shukla") applies.
   description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: siteUrl,
-    title,
+    url: "/",
+    title: ogTitle,
     description,
-    images: projects[0] ? [{ url: projects[0].image }] : undefined,
+    images: [OG_IMAGE],
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: {
+    card: "summary_large_image",
+    site: X_HANDLE,
+    creator: X_HANDLE,
+    title: ogTitle,
+    description,
+    images: [OG_IMAGE.url],
+  },
 };
 
 export default function Home() {
@@ -28,7 +41,7 @@ export default function Home() {
     "@type": "CollectionPage",
     name: title,
     description,
-    url: siteUrl,
+    url: PROJECTS_URL,
     mainEntity: {
       "@type": "ItemList",
       itemListElement: projects.map((p, i) => ({
@@ -36,8 +49,8 @@ export default function Home() {
         position: i + 1,
         name: p.name,
         description: p.blurb,
-        url: `${siteUrl}/${p.slug}`,
-        image: `${siteUrl}${p.image}`,
+        url: `${PROJECTS_URL}/${p.slug}`,
+        image: `${PROJECTS_URL}${p.image}`,
       })),
     },
   };
