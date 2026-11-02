@@ -43,7 +43,7 @@ export function NavLink({ item, active }: NavLinkProps) {
 			<a
 				href={item.href}
 				target={item.newTab ? "_blank" : undefined}
-				rel={item.newTab ? "noopener noreferrer" : undefined}
+				rel="noopener noreferrer"
 				className={className}
 			>
 				{content}
