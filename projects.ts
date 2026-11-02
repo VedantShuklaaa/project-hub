@@ -1,5 +1,5 @@
 export type Project = {
-  /** URL path: projects.vedantshukla.in/<slug> */
+  /** URL path: /<slug> on the projects site */
   slug: string;
   name: string;
   blurb: string;
