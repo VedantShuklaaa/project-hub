@@ -67,7 +67,7 @@ export default function Home() {
       </header>
 
       {projects.length > 0 ? (
-        <section aria-label="All projects" className="grid sm:grid-cols-2 gap-2 sm:gap-4">
+        <section aria-label="All projects" className="grid grid-cols-1 gap-2 sm:gap-4">
           {projects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} priority={i < 2} />
           ))}
