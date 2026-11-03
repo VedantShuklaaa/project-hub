@@ -12,8 +12,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "Hermit",
-    name: "Hermit",
+    slug: "hermit",
+    name: "hermit",
     blurb: "A unified infrastructure layer for tracking and indexing cross-chain bridge transactions across the Solana ecosystem.",
     image: "/projects/streamex.png",
     imageAlt: "Hermit cross-chain bridge transaction indexing dashboard.",
