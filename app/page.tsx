@@ -56,7 +56,7 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-[640px] px-5 py-16 sm:py-24">
+    <main className="mx-auto w-full max-w-[740px] px-5 py-16 sm:py-24">
       <header className="mb-10 sm:mb-12">
         <h1 className="text-2xl sm:text-3xl">
           <Typewriter text="~/ Projects" />
