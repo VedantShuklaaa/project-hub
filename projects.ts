@@ -17,8 +17,8 @@ export const projects: Project[] = [
     slug: "hermit",
     name: "hermit",
     blurb: "A unified infrastructure layer for tracking and indexing cross-chain bridge transactions across the Solana ecosystem.",
-    status: "In Development",
-    image: "/projects/streamex.png",
+    status: "Live",
+    image: "/projects/hermit.png",
     imageAlt: "Hermit cross-chain bridge transaction indexing dashboard.",
     originEnv: "HERMIT_ORIGIN",
   }, {
@@ -37,5 +37,13 @@ export const projects: Project[] = [
     image: "/projects/streamex.png",
     imageAlt: "Realtime crypto price streams flowing into a JavaScript client",
     originEnv: "STREAMEX_ORIGIN",
+  }, {
+    slug: "mantis",
+    name: "mantis",
+    blurb: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
+    status: "In Development",
+    image: "/projects/mantis.png",
+    imageAlt: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
+    originEnv: "MANTIS_ORIGIN",
   }
 ];
