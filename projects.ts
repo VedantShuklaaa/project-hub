@@ -30,6 +30,14 @@ export const projects: Project[] = [
     imageAlt: "Live depth chart from the lobster limit order book",
     originEnv: "LOBSTER_ORIGIN",
   }, {
+    slug: "mantis",
+    name: "mantis",
+    blurb: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
+    status: "Live",
+    image: "/projects/mantis.png",
+    imageAlt: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
+    originEnv: "MANTIS_ORIGIN",
+  }, {
     slug: "streamex-sdk",
     name: "streamex-sdk",
     blurb: "Unified realtime crypto streams for JavaScript applications, powered by Rust.",
@@ -37,13 +45,5 @@ export const projects: Project[] = [
     image: "/projects/streamex.png",
     imageAlt: "Realtime crypto price streams flowing into a JavaScript client",
     originEnv: "STREAMEX_ORIGIN",
-  }, {
-    slug: "mantis",
-    name: "mantis",
-    blurb: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
-    status: "In Development",
-    image: "/projects/mantis.png",
-    imageAlt: "a Solana AMM with its own devnet token and faucet, built from scratch in Anchor.",
-    originEnv: "MANTIS_ORIGIN",
   }
 ];
